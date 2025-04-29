@@ -6,7 +6,7 @@ import yaml
 APP = flask.Flask(__name__)
 
 
-@app.route("/")
+@APP.route("/")
 def index():
     version = flask.request.args.get("urllib_version")
     url = flask.request.args.get("url")
@@ -54,15 +54,15 @@ if __name__ == '__main__':
     print("4. Use of assert statements vulnerability:")
 
     CHOICE  = input("Select vulnerability: ")
-    if choice == "1":
+    if CHOICE == "1":
         NEW_PERSON = Person("Vickie")
-        print_nametag(input("Please format your nametag: "), new_person)
-    elif choice == "2":
+        print_nametag(input("Please format your nametag: "), NEW_PERSON)
+    elif CHOICE == "2":
         URLIB_VERSION = input("Choose version of urllib: ")
         fetch_website(URLIB_VERSION, url="https://www.google.com")
-    elif choice == "3":
+    elif CHOICE == "3":
         load_yaml(input("File name: "))
         print("Executed -ls on current folder")
-    elif choice == "4":
+    elif CHOICE == "4":
         password = input("Enter master password: ")
         authenticate(password)
