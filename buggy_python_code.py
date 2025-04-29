@@ -1,5 +1,3 @@
-import sys
-import os
 import flask
 import yaml
 
@@ -12,7 +10,7 @@ def index():
     url = flask.request.args.get("url")
     return fetch_website(version, url)
 
-        
+
 CONFIG = {"API_KEY": "771df488714111d39138eb60df756e6b"}
 class Person(object):
     def __init__(self, name):
@@ -29,7 +27,7 @@ def fetch_website(urllib_version, url):
     # Fetch and print the requested URL
     try:
         http = urllib.PoolManager()
-        r = http.request('GET', url)
+        http.request('GET', url)
     except:
         print('Exception')
 
@@ -53,7 +51,8 @@ if __name__ == '__main__':
     print("3. Yaml deserialization vulnerability:")
     print("4. Use of assert statements vulnerability:")
 
-    CHOICE  = input("Select vulnerability: ")
+    CHOICE = input("Select vulnerability: ")
+
     if CHOICE == "1":
         NEW_PERSON = Person("Vickie")
         print_nametag(input("Please format your nametag: "), NEW_PERSON)
@@ -64,5 +63,5 @@ if __name__ == '__main__':
         load_yaml(input("File name: "))
         print("Executed -ls on current folder")
     elif CHOICE == "4":
-        password = input("Enter master password: ")
-        authenticate(password)
+        PASSWORD = input("Enter master password: ")
+        authenticate(PASSWORD)
